@@ -54,10 +54,10 @@ namespace DevIdeas
             manager.PasswordValidator = new PasswordValidator
             {
                 RequiredLength = 6,
-                RequireNonLetterOrDigit = true,
+                RequireNonLetterOrDigit = false, // password now does not require cheracters like "@"
                 RequireDigit = true,
                 RequireLowercase = true,
-                RequireUppercase = true,
+                RequireUppercase = false, // password now does not require uppercase
             };
 
             // Configure user lockout defaults

@@ -63,7 +63,12 @@ namespace DevIdeas.Models
     }
 
     public class RegisterViewModel
-    {
+    { // model for user registration page
+        [Required]
+        [StringLength(12, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 2)]
+        [Display(Name = "Forum Nick Name")]
+        public string UserName { get; set; }
+
         [Required]
         [EmailAddress]
         [Display(Name = "Email")]
