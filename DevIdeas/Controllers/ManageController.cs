@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Dynamic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web;
@@ -63,8 +64,11 @@ namespace DevIdeas.Controllers
                 : message == ManageMessageId.RemovePhoneSuccess ? "Your phone number was removed."
                 : "";
 
+            dynamic manage_model = new ExpandoObject(); // new dynamic object for storing multiple models for "manage" view
+
             var userId = User.Identity.GetUserId();
-            var model = new IndexViewModel
+
+            manage_model.main = new IndexViewModel // "main" part of the dynamic model contains properties that were already defined upon application creation
             {
                 HasPassword = HasPassword(),
                 PhoneNumber = await UserManager.GetPhoneNumberAsync(userId),
@@ -72,7 +76,14 @@ namespace DevIdeas.Controllers
                 Logins = await UserManager.GetLoginsAsync(userId),
                 BrowserRemembered = await AuthenticationManager.TwoFactorBrowserRememberedAsync(userId)
             };
-            return View(model);
+           
+            manage_model.userinfo = new ApplicationUser // "userinfo" part of the dynamic model contains properties from AspNetUsers db table
+            {
+                Email = await UserManager.GetEmailAsync(userId)           
+            
+            };
+
+            return View(manage_model);  
         }
 
         //

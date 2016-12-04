@@ -215,6 +215,14 @@
     <Compile Include="Migrations\201612021848435_InitialCreate.Designer.cs">
       <DependentUpon>201612021848435_InitialCreate.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201612041014444_RegistrationDate.cs" />
+    <Compile Include="Migrations\201612041014444_RegistrationDate.Designer.cs">
+      <DependentUpon>201612041014444_RegistrationDate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201612041039435_RegistrationDate1.cs" />
+    <Compile Include="Migrations\201612041039435_RegistrationDate1.Designer.cs">
+      <DependentUpon>201612041039435_RegistrationDate1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -298,6 +306,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201612021848435_InitialCreate.resx">
       <DependentUpon>201612021848435_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201612041014444_RegistrationDate.resx">
+      <DependentUpon>201612041014444_RegistrationDate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201612041039435_RegistrationDate1.resx">
+      <DependentUpon>201612041039435_RegistrationDate1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

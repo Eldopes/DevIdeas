@@ -1,19 +1,31 @@
-﻿@model DevIdeas.Models.IndexViewModel
+﻿@model dynamic
 @{
     ViewBag.Title = "Manage";
 }
 
-<h2>@ViewBag.Title.</h2>
+<h2></h2>
 
 <p class="text-success">@ViewBag.StatusMessage</p>
 <div>
-    <h4>Change your account settings</h4>
+    <h4>Manage your account settings</h4>
     <hr />
     <dl class="dl-horizontal">
-        <dt>Password:</dt>
+
+        <dt>Forum nick name:</dt>
+        <!--TODO: fix this (now prints empty)-->
+        <dd>
+            @Model.userinfo.UserName
+        </dd>
+
+        <dt>E-mail:</dt>
+        <dd>
+            @Model.userinfo.Email
+        </dd>
+
+       <dt>Password:</dt>
         <dd>
             [
-            @if (Model.HasPassword)
+            @if (Model.main.HasPassword)
             {
                 @Html.ActionLink("Change your password", "ChangePassword")
             }
@@ -23,9 +35,10 @@
             }
             ]
         </dd>
+
         <dt>External Logins:</dt>
         <dd>
-            @Model.Logins.Count [
+            @Model.main.Logins.Count [
             @Html.ActionLink("Manage", "ManageLogins") ]
         </dd>
         @*
@@ -56,6 +69,7 @@
                 }
             </dd>
         *@
+
         <dt>Two-Factor Authentication:</dt>
         <dd>
             <p>
@@ -83,5 +97,13 @@
                     }
                 }*@
         </dd>
+
+        <hr />
+
+        <dt>Registration date:</dt>
+        <dd>
+            @Model.userinfo.RegistrationDate
+        </dd>
+
     </dl>
 </div>
