@@ -76,11 +76,14 @@ namespace DevIdeas.Controllers
                 Logins = await UserManager.GetLoginsAsync(userId),
                 BrowserRemembered = await AuthenticationManager.TwoFactorBrowserRememberedAsync(userId)
             };
-           
+
+            var user = UserManager.FindById(userId);            
+            
             manage_model.userinfo = new ApplicationUser // "userinfo" part of the dynamic model contains properties from AspNetUsers db table
             {
-                Email = await UserManager.GetEmailAsync(userId)           
-            
+                Email = await UserManager.GetEmailAsync(userId),
+                UserName = User.Identity.GetUserName(),
+                RegistrationDate = user.RegistrationDate
             };
 
             return View(manage_model);  
