@@ -19,6 +19,7 @@ namespace DevIdeas.Models
         }
 
         public DateTime RegistrationDate { get; set; } = DateTime.Now;
+        public int NumberOfIDeas { get; set; }
     }
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
@@ -27,6 +28,8 @@ namespace DevIdeas.Models
             : base("DefaultConnection", throwIfV1Schema: false)
         {
         }
+
+        public DbSet<Idea> Ideas { get; set; } // makes virtual properties in Idea class available  available
 
         public static ApplicationDbContext Create()
         {
