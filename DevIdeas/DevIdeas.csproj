@@ -231,6 +231,10 @@
     <Compile Include="Migrations\201612111545380_NumberOfIdeas1.Designer.cs">
       <DependentUpon>201612111545380_NumberOfIdeas1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201612141803344_Thread Properties.cs" />
+    <Compile Include="Migrations\201612141803344_Thread Properties.Designer.cs">
+      <DependentUpon>201612141803344_Thread Properties.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\GameModels.cs" />
@@ -328,6 +332,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201612111545380_NumberOfIdeas1.resx">
       <DependentUpon>201612111545380_NumberOfIdeas1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201612141803344_Thread Properties.resx">
+      <DependentUpon>201612141803344_Thread Properties.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
